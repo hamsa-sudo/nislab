@@ -1,0 +1,12 @@
+---
+
+
+- name: Empty a file on multiple servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Empty rhe target file
+      ansible.builtin.copy:
+        content: ""
+        dest: /etc/apt/sources.list
+        force: yes
